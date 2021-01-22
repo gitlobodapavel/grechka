@@ -1,3 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Prices{% endblock %}
-{% block content %} data: {{ parsed_data }} {% endblock %}
+{% block content %}
+{% for counter in range(0, parsed_data|length) %}
+    {{ parsed_data[counter]['title'] }}
+    <img src="{{ parsed_data[counter]['img'] }}" alt="">
+    {{ parsed_data[counter]['price'] }}
+{% endfor %}
+
+{% endblock %}

@@ -67,11 +67,6 @@ def parse_vitok():
     return products
 
 
-def sort(list_of_dicts):
-    pass
-
-
-
 def parse():
     list = parse_gastronom() + parse_atb() + parse_vitok()
     return list
