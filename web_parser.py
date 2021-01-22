@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 def parse_gastronom():
@@ -17,7 +18,7 @@ def parse_gastronom():
     for item in items:
         products.append({
             'title': item.find('a', class_ = 'tovar_name').get_text(strip=True),
-            'price': item.find('b').get_text(strip=True),
+            'price': re.sub('грн', '', item.find('b').get_text(strip=True)),
             'img': 'https://gastronom.com.ua/' + item.find('img', class_ = 'tovar_img')['data-src']
         })
 
@@ -60,15 +61,25 @@ def parse_vitok():
     for item in items:
         products.append({
             'title': item.find('div', class_='product-title').get_text(strip=True),
-            'price': item.find('span', class_='price-value').get_text(strip=True) + '0',
+            'price': item.find('span', class_='price-value').get_text(strip=True),
             'img': item.find('img')['src']
         })
 
     return products
 
+# float(list[counter]['price'])
+
+
+def sort(list):
+    for counter in range(0, len(list)):
+        for element in range(0, len(list)-counter-1):
+            if float(list[element]['price']) > float(list[element + 1]['price']):
+                list[element], list[element+1] = list[element+1], list[element]
+    return list
+
 
 def parse():
     list = parse_gastronom() + parse_atb() + parse_vitok()
-    return list
+    return sort(list)
 
 
