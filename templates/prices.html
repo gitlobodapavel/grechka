@@ -2,9 +2,13 @@
 {% block title %}Prices{% endblock %}
 {% block content %}
 {% for counter in range(0, parsed_data|length) %}
+<br>
     {{ parsed_data[counter]['title'] }}
+<br>
     <img src="{{ parsed_data[counter]['img'] }}" alt="">
+<br>
     {{ parsed_data[counter]['price'] }}
+<br>
 {% endfor %}
 
 {% endblock %}
