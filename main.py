@@ -4,6 +4,7 @@ import web_parser
 
 app = Flask(__name__)
 
+
 @app.after_request
 def add_header(r):
     """

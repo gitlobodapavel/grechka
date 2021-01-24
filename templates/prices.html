@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}Prices{% endblock %}
-{% block content %}
-{% for counter in range(0, parsed_data|length) %}
-<br>
-    {{ parsed_data[counter]['title'] }}
-<br>
-    <img src="{{ parsed_data[counter]['img'] }}" alt="">
-<br>
-    {{ parsed_data[counter]['price'] }}
-<br>
-{% endfor %}
-
+{% block header_styles %}
+<link rel="stylesheet" href="static/css/prices.css?v=1.7.0">
 {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+{% for counter in range(0, parsed_data|length) %}
+        <div class="col-md-4">
+            <div class="adv_block">
+                <img style="max-width: 250px; max-height: auto;" src="{{ parsed_data[counter]['img'] }}" alt="GRECHKA">
+                <h6>{{ parsed_data[counter]['title'] }}</h6>
+                <span>{{ parsed_data[counter]['price'] }}</span>
+                <a href="/prices">Купить</a>
+            </div>
+        </div>
+{% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
