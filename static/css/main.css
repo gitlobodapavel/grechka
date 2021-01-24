@@ -1,0 +1,67 @@
+body{
+    background-image: url(/static/images/grechka.png);
+    text-align: center;
+}
+.content-wrap{
+    padding-top: 35%;
+}
+#main_link{
+    padding-top: 15px;
+    padding-bottom:15px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    width: 100%;
+    height: auto;
+
+    background-color: red;
+    color: white;
+
+    font-size: 36px;
+
+    border: 5px solid transparent;
+
+    animation: glowing 800ms infinite;
+}
+#main_link:hover{
+    text-decoration: none;
+}
+
+@keyframes glowing {
+      0% { background-color: red; box-shadow: 0 0 5px red; }
+      50% { background-color: white; box-shadow: 0 0 20px red; color: red;}
+      100% { background-color: red; box-shadow: 0 0 5px white; }
+      }
+@keyframes adv_glowing {
+      0% { background-color: red; }
+      50% { background-color: white; color: red}
+      100% { background-color: red; color: white; }
+      }
+
+
+.adv_block{
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.adv_block img{
+    max-width: 200px;
+    max-height: auto;
+}
+
+.adv_block h6{
+    color: red;
+}
+
+.adv_block a{
+    animation: adv_glowing 1000ms infinite;
+    color: white;
+}
+
+.adv_block a:hover{
+    text-decoration: none;
+}
