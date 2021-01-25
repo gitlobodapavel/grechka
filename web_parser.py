@@ -21,8 +21,10 @@ def parse_gastronom(out_queue):
         products.append({
             'title': item.find('a', class_ = 'tovar_name').get_text(strip=True),
             'price': re.sub('грн', '', item.find('b').get_text(strip=True)),
-            'img': 'https://gastronom.com.ua/' + item.find('img', class_ = 'tovar_img')['data-src']
+            'img': 'https://gastronom.com.ua/' + item.find('img', class_ = 'tovar_img')['data-src'],
+            'link': 'https://gastronom.com.ua' + item.find('a', class_ = 'tovar_name')['href']
         })
+    print(products)
     out_queue.put(products)
     # return products
 
@@ -43,7 +45,8 @@ def parse_atb(out_queue):
         products.append({
             'title': item.find('div', class_ = 'product-detail text-center').get_text(strip=True),
             'price': item.find('span', class_ = 'price').get_text(strip=True)[:2] + '.' + item.find('span', class_ = 'price').get_text(strip=True)[2:],
-            'img': item.find('img')['src']
+            'img': item.find('img')['src'],
+            'link': 'https://zakaz.atbmarket.com' + item.find('a', class_='')['href']
         })
     out_queue.put(products)
     # return products
@@ -65,9 +68,9 @@ def parse_vitok(out_queue):
         products.append({
             'title': item.find('div', class_='product-title').get_text(strip=True),
             'price': item.find('span', class_='price-value').get_text(strip=True),
-            'img': item.find('img')['src']
+            'img': item.find('img')['src'],
+            'link': item.find('a')['href']
         })
-
     out_queue.put(products)
     # return products
 

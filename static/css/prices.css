@@ -3,4 +3,33 @@ body{
 }
 .container{
     background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.adv-block{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h6{
+	font-family: Trattatello, fantasy;
+	font-style: italic;
+	text-align: center;
+	text-decoration: underline;
+}
+span {
+	font-family: Comic Sans MS, Comic Sans, cursive;
+	text-align: center;
+}
+a{
+	animation: adv_glowing 1000ms infinite;
+    color: red;
+	text-align: center;
+}
+p{
+    text-align: center;
+}
+.adv_block img{
+    width: 100%;
+    height: auto;
 }

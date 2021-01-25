@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Prices{% endblock %}
+{% block title %}Grechka | Prices{% endblock %}
 {% block header_styles %}
 <link rel="stylesheet" href="static/css/prices.css?v=1.7.0">
 {% endblock %}
@@ -7,12 +7,12 @@
     <div class="container">
         <div class="row">
 {% for counter in range(0, parsed_data|length) %}
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="adv_block">
-                <img style="max-width: 250px; max-height: auto;" src="{{ parsed_data[counter]['img'] }}" alt="GRECHKA">
+                <p><img style="max-width: 250px; max-height: auto;" src="{{ parsed_data[counter]['img'] }}" alt="GRECHKA"></p>
                 <h6>{{ parsed_data[counter]['title'] }}</h6>
-                <span>{{ parsed_data[counter]['price'] }}</span>
-                <a href="/prices">Купить</a>
+                <p><span>{{ parsed_data[counter]['price'] }} грн</span>
+                <a href="{{ parsed_data[counter]['link'] }}">Купить!</a></p>
             </div>
         </div>
 {% endfor %}
